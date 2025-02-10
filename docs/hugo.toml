@@ -1,6 +1,6 @@
 baseURL = 'https://innofactororg.github.io/Azure-Modules/'
 languageCode = 'en-us'
-title = 'Azure Verified Solutions'
+title = 'Innofactor Verified Solutions'
 theme = 'hugo-theme-relearn'
 
 images = ['images/avm_logo.png']

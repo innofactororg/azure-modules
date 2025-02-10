@@ -1,6 +1,6 @@
-# Azure Verified Modules (AVM) - Module Indexes
+# Innofactor Verified Solutions (IVS) - Module Indexes
 
-This repository contains module indexes used by the Azure Verified Solutions Continuous Integration (CI) environment. These indexes facilitate the publishing of new modules into the Azure Verified Solutions repository. The following module indexes are maintained in this repository:
+This repository contains module indexes used by the Innofactor Verified Solutions Continuous Integration (CI) environment. These indexes facilitate the publishing of new modules into the Innofactor Verified Solutions repository. The following module indexes are maintained in this repository:
 
 - `pattern`
 - `resource`
@@ -22,7 +22,7 @@ The `utility` module index includes helper scripts, utilities, and tools that as
 
 ## CI Environment
 
-The CI environment in the Azure Verified Solutions repository leverages these module indexes to:
+The CI environment in the Innofactor Verified Solutions repository leverages these module indexes to:
 
 - Validate new module submissions.
 - Ensure compliance with specified guidelines and best practices.
@@ -31,7 +31,7 @@ The CI environment in the Azure Verified Solutions repository leverages these mo
 ## Contribution Guidelines
 
 Contributions to these module indexes are controlled by the practice team to ensure consistency and approval of modules which are to be published. 
-If you have a new module or updates to existing modules, please follow the contribution guidelines in the Azure Verified Solutions repository:
+If you have a new module or updates to existing modules, please follow the contribution guidelines in the Innofactor Verified Solutions repository:
 
 1. Create an Issue for a new or updated module, and wait for approval.
 2. Create a new branch for your changes.

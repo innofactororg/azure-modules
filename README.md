@@ -18,7 +18,7 @@ Our goal is to provide:
 - **Extended functionality** where AVM modules lack specific features or have unresolved issues.
 - **Patterns and reusable components** tailored to Innofactor’s unique customer requirements.
 
-For more information on IVS, **please visit the [innofactororg.github.io/azure-modules/](https://https://innofactororg.github.io/azure-modules/)**.
+For more information on IVS, **please visit the [innofactororg.github.io/azure-modules/](https://innofactororg.github.io/azure-modules/)**.
 
 ## IVS Mission Statement
 
@@ -26,7 +26,7 @@ Our mission is to deliver a comprehensive **Innofactor Verified Solutions** libr
 
 ## Contributing
 
-To contribute to Innofactor Verified Solutions, please visit: [aka.ms/IVS/Contribute](https://aka.ms/IVS/Contribute)
+To contribute to Innofactor Verified Solutions, please visit: [https://github.com/innofactororg/azure-verified-solutions/blob/main/docs/system/00-index.md](https://github.com/innofactororg/azure-verified-solutions/blob/main/docs/system/00-index.md)
 
 ## Trademarks
 
