@@ -41,6 +41,7 @@ Innofactor Verified Solutions provides two primary types of modules:
 
 - **Resource Modules** – Used for deploying individual Azure resources and their required configurations.
 - **Pattern Modules** – Represent reusable architectural patterns that standardize common deployment scenarios.
+- **Utility Modules** - Shared resources for standards, including typing, naming, etc.
 
 IVS modules are composable, meaning they:
 
