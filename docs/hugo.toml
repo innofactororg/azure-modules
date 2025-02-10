@@ -34,7 +34,7 @@ enableGitInfo = true
     collapsibleMenu = false
     disableRootBreadcrumb = false
     # clarityId = 'prb1m4vask' # AVM-Test
-    clarityId = 'p0l7yeco82' # Azure-Verified-Modules
+    # clarityId = 'p0l7yeco82' # Azure-Verified-Modules
 
 [module]
   [[module.imports]]

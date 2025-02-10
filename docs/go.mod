@@ -1,5 +1,5 @@
-module innofactororg.github.io/Azure-Modules
+module github.com/innofactororg/azure-modules
 
-go 1.23.4
+go 1.23.6
 
-require github.com/McShelby/hugo-theme-relearn v0.0.0-20241215143513-66f4fbf5f04d // indirect
+require github.com/McShelby/hugo-theme-relearn v0.0.0-20250208204004-71b4e34bc10d // indirect
