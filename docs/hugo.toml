@@ -8,7 +8,7 @@ images = ['images/avm_logo.png']
 enableGitInfo = true
 
 [params]
-    base = '/Azure-Verified-Modules'
+    base = '/Azure-Modules'
     images = ['images/avm_logo.png']
     logo = 'images/favicon.svg'
     disableExplicitIndexURLs = true
