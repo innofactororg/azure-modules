@@ -75,6 +75,9 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/"
         working-directory: ./docs
 
+      - name: Create .nojekyll file
+        run: echo "" > ./docs/public/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
