@@ -58,6 +58,10 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
+      - name: Install Hugo modules
+        run: hugo mod get
+        working-directory: ./docs
+
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
@@ -75,7 +79,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/public
-
 
   # Deployment job
   deploy:
