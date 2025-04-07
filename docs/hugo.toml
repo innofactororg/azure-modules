@@ -101,11 +101,11 @@ enableGitInfo = true
       weight = 2
       params = { alwaysopen = false, collapsibleMenu = true }
 
-    [[menu.defined]]
-      identifier = 'bicep-utility-module-indexes'
-      parent = 'bicep-module-indexes'
-      name = 'Utility Modules'
-      pageRef = '/indexes/bicep/bicep-utility-modules'
-      weight = 3
-      params = { alwaysopen = false, collapsibleMenu = true }
+    #[[menu.defined]]
+      #identifier = 'bicep-utility-module-indexes'
+      #parent = 'bicep-module-indexes'
+      #name = 'Utility Modules'
+      #pageRef = '/indexes/bicep/bicep-utility-modules'
+      #weight = 3
+      #params = { alwaysopen = false, collapsibleMenu = true }
 
