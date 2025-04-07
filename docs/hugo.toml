@@ -69,23 +69,6 @@ enableGitInfo = true
 [markup.goldmark.parser]
   autoHeadingID = true
 
-
-[[menu.defined]]
-  identifier = 'overview'
-  parent = 'home'
-  name = 'Overview'
-  pageRef = '/overview'
-  weight = 1
-  params = { alwaysopen = true, collapsibleMenu = true }
-
-  [[menu.defined]]
-    identifier = 'introduction'
-    parent = 'overview'
-    name = 'Introduction'
-    pageRef = '/overview/introduction'
-    weight = 1
-    params = { alwaysopen = true, collapsibleMenu = true }
-
 [[menu.defined]]
   identifier = 'module-indexes'
   parent = 'home'
