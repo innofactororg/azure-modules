@@ -62,7 +62,7 @@ If you encounter issues or require additional features, please raise a request i
 See [Module Support]({{%siteparam base%}}/help-support/module-support) for more details.
 {{% /notice %}}
 
-## Next Steps
+<!-- ## Next Steps
 
 <table style="border: none; border-collapse: collapse; margin: 0; padding: 0;">
   <tr>
@@ -81,4 +81,4 @@ See [Module Support]({{%siteparam base%}}/help-support/module-support) for more 
     </td>
   </tr>
 </table>
-
+ -->
