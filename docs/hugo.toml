@@ -1,4 +1,4 @@
-baseURL = 'https://innofactororg.github.io/Azure-Modules/'
+baseURL = 'https://innofactororg.github.io/azure-modules/'
 languageCode = 'en-us'
 title = 'Innofactor Verified Solutions'
 theme = 'hugo-theme-relearn'
@@ -8,7 +8,7 @@ images = ['images/avm_logo.png']
 enableGitInfo = true
 
 [params]
-    base = '/Azure-Modules'
+    base = '/azure-modules'
     images = ['images/avm_logo.png']
     logo = 'images/favicon.svg'
     disableExplicitIndexURLs = true
@@ -27,7 +27,7 @@ enableGitInfo = true
       # { type = 'page', identifier = 'home', main = true, disableTitle = true, pageRef = '' },
       # { type = 'menu', identifier = 'shortcuts', main = false, disableTitle = false },
     ]
-    editURL = 'https://github.com/innofactororg/Azure-Modules/edit/main/docs/content/${FilePath}'
+    editURL = 'https://github.com/innofactororg/azure-modules/edit/main/docs/content/${FilePath}'
     disableInlineCopyToClipBoard = true
     disableAnchorScrolling = false
     alwaysopen = true
