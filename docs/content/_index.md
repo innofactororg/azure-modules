@@ -59,10 +59,10 @@ By leveraging IVS, teams can ensure faster, more reliable infrastructure deploym
 
 If you encounter issues or require additional features, please raise a request in our internal repository. For official Microsoft AVMs, continue to use Microsoft’s GitHub issues and support channels.
 
-See [Module Support]({{%siteparam base%}}/help-support/module-support) for more details.
+<!-- See [Module Support]({{%siteparam base%}}/help-support/module-support) for more details. -->
 {{% /notice %}}
 
-## Next Steps
+<!-- ## Next Steps
 
 <table style="border: none; border-collapse: collapse; margin: 0; padding: 0;">
   <tr>
@@ -81,4 +81,4 @@ See [Module Support]({{%siteparam base%}}/help-support/module-support) for more 
     </td>
   </tr>
 </table>
-
+ -->

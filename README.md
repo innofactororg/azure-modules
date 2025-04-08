@@ -1,5 +1,5 @@
 <!-- markdownlint-disable -->
-> 📄 **Please note** that our documentation is published at [innofactororg.github.io/azure-modules/](https://https://innofactororg.github.io/azure-modules/). Please visit this site for more information and guidance! 📄 <br><br>
+> 📄 **Please note** that our documentation is published at [innofactororg.github.io/azure-modules/](https://innofactororg.github.io/azure-modules/). Please visit this site for more information and guidance! 📄 <br><br>
 > This repository is used for proposing and tracking the state of modules, tracking issues and feature requests, and hosting documentation for the **Innofactor Verified Solutions (IVS)** project. If you are looking for IVS code repositories, please visit the [module indexes](https://innofactor.github.io/Innofactor-Verified-Solutions/indexes/) on the IVS portal for references.
 <!-- markdownlint-restore -->
 
