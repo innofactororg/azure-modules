@@ -41,4 +41,7 @@ docs/disableFastRender/*
 docs/themes/hugo-theme-relearn/exampleSite/*
 
 # MacOS
-.DS_Store
+.DS_Store# Generated at build time by scripts/generate-module-pages.py
+docs/content/modules/
+docs/data/registry.json
+__pycache__/

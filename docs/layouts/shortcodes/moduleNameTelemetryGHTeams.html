@@ -134,10 +134,11 @@
       {{- printf "%02d" $i -}}
       {{- $i = add $i 1 -}}
     </td>
+    {{ $hasPage := index (site.Data.registry | default dict) $item.ModuleName }}
     <td> {{/* module name and link to the repo */}}
       {{- if $useLinks -}}
-        {{- if or (eq $item.ModuleStatus "Available :green_circle:") (eq $item.ModuleStatus "Orphaned :eyes:") -}}
-          <a href="{{ $item.RepoURL }}">{{ $item.ModuleName }}</a>
+        {{- if or (eq $item.ModuleStatus "Available :green_circle:") (eq $item.ModuleStatus "Orphaned :eyes:") (and (eq $item.ModuleStatus "Deprecated :warning:") $hasPage) -}}
+          <a href="{{ printf "modules/%s/" (replace (strings.TrimPrefix "avm/" $item.ModuleName) "/" "-") | relURL }}">{{ $item.ModuleName }}</a>
         {{- else -}}
           {{ $item.ModuleName }}
         {{- end -}}

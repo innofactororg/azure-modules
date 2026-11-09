@@ -44,7 +44,7 @@ Modules listed below that aren't shown with the status of **`Module Available ðŸ
 
 {{% expand title="âž• Proposed Modules - Module names, status and owners" expanded="false" %}}
 
-{{% moduleNameStatusOwners header=true csv="/static/module-indexes/BicepPatternModules.csv" language="Bicep" moduleType="pattern" exclude="Available :green_circle:,Orphaned :eyes:" %}}
+{{% moduleNameStatusOwners header=true csv="/static/module-indexes/BicepPatternModules.csv" language="Bicep" moduleType="pattern" exclude="Available :green_circle:,Orphaned :eyes:,Deprecated :warning:" %}}
 
 {{% /expand %}}
 
