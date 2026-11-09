@@ -134,44 +134,10 @@
   {{ range $item, $maps }}
   {{ if not (in $exclude $item.ModuleStatus) }}
     {{ $moduleLatestVersion = "N/A" }}
-    {{ if or (eq $item.ModuleStatus "Available!! :green_circle:") (eq $item.ModuleStatus "Orphaned :eyes:") }}
-      {{ $moduleMcrUrl := printf "https://piacbicepregistryacr.azurecr.io/v2/%s/tags/list" $item.ModuleName }}
-      {{ $moduleMcrData := dict }}
-      {{ with resources.GetRemote $moduleMcrUrl }}
-        {{ with .Err }}
-          {{ errorf "%s" . }}
-        {{ else }}
-          {{ $moduleMcrData = . | transform.Unmarshal }}
-        {{ end }}
-      {{ else }}
-        {{ errorf "Unable to get remote resource %q" $moduleMcrUrl }}
-      {{ end }}
-      {{ $moduleVersions := $moduleMcrData.tags }}
-      {{ if $moduleVersions }}
-        {{/* Initialize $sortedVersions as an empty slice */}}
-        {{ $sortedVersions := slice }}
-        {{ range $moduleVersions }}
-          {{ $parts := split . "." }}
-          {{ $major := printf "%03d" (index $parts 0 | int) }}
-          {{ $minor := printf "%03d" (index $parts 1 | int) }}
-          {{ $patch := printf "%03d" (index $parts 2 | int) }}
-          {{ $sortableVersion := print $major $minor $patch }}
-          {{ $sortedVersions = $sortedVersions | append (dict "sortableVersion" $sortableVersion "originalVersion" .) }}
-        {{ end }}
-
-        {{/* Sort by the sortableVersion field */}}
-        {{ $sortedVersions = sort $sortedVersions "sortableVersion" }}
-
-        {{/* Extract the original versions in sorted order */}}
-        {{ $originalSortedVersions := slice }}
-        {{ range $sortedVersions }}
-          {{ $originalSortedVersions = $originalSortedVersions | append .originalVersion }}
-        {{ end }}
-
-        {{/* Set $moduleLatestVersion to the first element of $sortedSemVers, which is the latest version */}}
-        {{ $moduleLatestVersion = index $originalSortedVersions (sub (len $originalSortedVersions) 1) }}
-      {{ end }}
-    {{ end }}
+    {{ $registryData := site.Data.registry | default dict }}
+    {{ with index $registryData $item.ModuleName }}{{ $moduleLatestVersion = .latest }}{{ end }}
+    {{ $hasPage := index $registryData $item.ModuleName }}
+    {{ $modulePage := printf "modules/%s/" (replace (strings.TrimPrefix "avm/" $item.ModuleName) "/" "-") | relURL }}
     {{ $trimmedModuleStatus := replace $item.ModuleStatus "Module " "" }}
     {{ $trimmedAlternativeNames := replace $item.AlternativeNames "  " " " }}
     {{ $trimmedAlternativeNames = replace $trimmedAlternativeNames ", " "," }}
@@ -185,8 +151,8 @@
       </td>
       <td> {{/* module name and link to the repo */}}
         {{ if $useLinks }}
-          {{- if or (eq $item.ModuleStatus "Available :green_circle:") (eq $item.ModuleStatus "Orphaned :eyes:") -}}
-            <a href="{{ $item.RepoURL }}">
+          {{- if or (eq $item.ModuleStatus "Available :green_circle:") (eq $item.ModuleStatus "Orphaned :eyes:") (and (eq $item.ModuleStatus "Deprecated :warning:") $hasPage) -}}
+            <a href="{{ $modulePage }}">
               {{ $item.ModuleName }}
             </a>
           {{- else -}}
@@ -202,7 +168,7 @@
             {{ if $useLinks }}
               {{- if or (eq $element.ModuleStatus "Available :green_circle:") (eq $element.ModuleStatus "Orphaned :eyes:") -}}
                 <li style="margin-left: 20px;">
-                  <a href="{{ $element.RepoURL }}" title="{{ $element.ModuleDisplayName }} | {{ $element.ModuleName }}">{{ $child }}</a>
+                  <a href="{{ printf "modules/%s/" (replace (strings.TrimPrefix "avm/" $element.ModuleName) "/" "-") | relURL }}" title="{{ $element.ModuleDisplayName }} | {{ $element.ModuleName }}">{{ $child }}</a>
                 </li>
               {{- else -}}
                 <li style="margin-left: 20px;">
@@ -223,8 +189,8 @@
         {{- end -}}
       </td>
       <td> {{/* availability badge and versions  */}}
-        {{- if or (eq $item.ModuleStatus "Available!! :green_circle:") (eq $item.ModuleStatus "Orphaned :eyes:") -}}
-          <a href="https://piacbicepregistryacr.azurecr.io/v2/{{ $item.ModuleName }}/tags/list">
+        {{- if or (eq $item.ModuleStatus "Available :green_circle:") (eq $item.ModuleStatus "Orphaned :eyes:") (and (eq $item.ModuleStatus "Deprecated :warning:") $hasPage) -}}
+          <a href="{{ $modulePage }}">
             <image src="https://img.shields.io/badge/{{ emojify $trimmedModuleStatus }}-{{ $moduleLatestVersion }}-blue"/>
           </a>
         {{- else -}}
