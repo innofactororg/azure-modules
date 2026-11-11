@@ -28,6 +28,17 @@ SCHEME = os.environ.get("MODULE_REGISTRY_SCHEME", "https")
 DOCS_PREFIX = "docs/"
 GUID_RE = re.compile(r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b")
 ZERO_GUID = "00000000-0000-0000-0000-000000000000"
+
+
+def _load_builtin_role_ids():
+    """Azure built-in role definition IDs are public and identical in every tenant, so module docs
+    may name them (e.g. Contributor). Every other GUID-shaped value is still refused."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "azure-builtin-role-ids.txt")
+    with open(path, encoding="utf-8") as f:
+        return {line.strip().lower() for line in f if line.strip() and not line.startswith("#")}
+
+
+ALLOWED_GUIDS = _load_builtin_role_ids() | {ZERO_GUID}
 MANIFEST_ACCEPT = "application/vnd.oci.image.manifest.v1+json"
 BICEP_SOURCE_LAYER = "application/vnd.ms.bicep.module.layer.v1+json"
 
@@ -295,7 +306,7 @@ def main():
                      f"module example 'br/innofactor:{repo}:{latest}' = {{", "  name: 'example'", "  params: {}", "}", "```"]
         body += [""]
         text = "\n".join(body)
-        bad = [g for g in GUID_RE.findall(text) if g != ZERO_GUID]
+        bad = [g for g in GUID_RE.findall(text) if g.lower() not in ALLOWED_GUIDS]
         if bad:
             problems.append(f"{repo}: published content contains GUID-like values {sorted(set(bad))}; refusing to publish them on the public site")
             continue
