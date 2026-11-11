@@ -34,7 +34,7 @@ defaults:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned; ubuntu-latest moves to Ubuntu 26 from 2026-10-19
     env:
       HUGO_VERSION: 0.136.5
     steps:
@@ -59,9 +59,9 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
-      - name: Install Hugo modules
-        run: hugo mod get
-        working-directory: ./docs
+      # No "hugo mod get" here: it upgraded hugo-theme-relearn past the version pinned in
+      # docs/go.mod, and the 2026-11-08 theme needs a newer Hugo than HUGO_VERSION. Hugo resolves
+      # the go.mod-pinned module itself at build time. Bump the theme and HUGO_VERSION together.
 
       - name: Generate module pages from the registry
         # Reads only the public registry. Fails the build when the module index
@@ -94,7 +94,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned; ubuntu-latest moves to Ubuntu 26 from 2026-10-19
     needs: build
     steps:
       - name: Deploy to GitHub Pages
